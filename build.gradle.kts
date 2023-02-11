@@ -25,6 +25,10 @@ version = properties("pluginVersion")
 repositories {
     mavenCentral()
 }
+dependencies {
+    implementation("io.github.java-diff-utils:java-diff-utils:4.12")
+//    implementation("com.github.wumpz:diffutils:3.0")
+}
 
 // Set the JVM language level used to build the project. Use Java 11 for 2020.3+, and Java 17 for 2022.2+.
 kotlin {

@@ -1,18 +1,24 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.anis00723.gptcommitidea</id>
-    <name>IntelliJ Platform Plugin gptcommit-idea</name>
+    <name>GPTCommit Idea</name>
     <vendor>anis00723</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.anis00723.gptcommitidea.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.anis00723.gptcommitidea.services.MyProjectService"/>
     </extensions>
 
+    <depends>com.intellij.modules.lang</depends>
+
+    <actions>
+        <action id="MyPlugin.MyAction" class="com.github.anis00723.gptcommitidea.actions.GPTCommitAction"
+                text="Generate Commit Message"
+                description="Generates a commit message based on changes in the repository">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="first" />
+        </action>
+    </actions>
+
     <applicationListeners>
-        <listener class="com.github.anis00723.gptcommitidea.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>
